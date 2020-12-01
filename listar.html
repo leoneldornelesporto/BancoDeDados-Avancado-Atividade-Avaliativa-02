@@ -1,0 +1,52 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+
+<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+<title> Lista de livros </title>
+ <script src="scripts/firebase.js"></script>
+ <script src="scripts/script.js"></script>
+</head>
+<body onload="listar_titulo()">
+
+<div id="lista_titulo">
+<button onclick="window.location.href = 'listar_ano.html';">Listar por ano</button> 
+<button onclick="window.location.href = 'listar.html';">Listar por titulo</button> 
+
+
+<h1> Lista de Livros por Titulo</h1>
+<table id="tabA" border=1px>
+<tbody id="tabCorpo">
+<tr>
+<th>Ano</th>
+<th>Autor</th>
+<th>descrição</th>
+<th>Título</th>
+<th> Editar</th>
+<th> Remover</th>
+</tr>
+</tbody>
+</table>
+<a href="index.html">  Cadastrar </a>
+
+</div>
+
+
+<div id="editar" style="display: none">
+<h1> Preencha os campos com os dados, corretamente e confirme </h1>
+<label> Título: <input type="text" name="titulo" id="titulo" value="" />  </label> </br> 
+ <label> Descrição: <input type="text" name="descricao" id="descricao"/> </label> <br/>
+<label> Autor: <input type="text" name="autor" id="autor"/>  </label> </br> 
+<label> Ano de lançamento: <input type="text" name="ano" id="ano"/>  </label> </br> 
+ <input type="hidden" name="chave" id="chave"/> 
+<input type="button" name="editar" onclick="editar();" value="Confirmar" id="editar" /> </br>  
+
+
+<a href="listar.html">  Listar </a>
+
+</div>
+<input type="button" name="sair" onclick="signOut()" value="Sair" id="sair" /> </br>
+
+
+</body>
+</html>
