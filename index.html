@@ -14,5 +14,14 @@
 <a href="listar.html">  Listar </a>
 <input type="button" name="cadastrar" onclick="cadastrar()" value="Cadastrar" id="cadastrar" /> </br>
 <input type="button" name="sair" onclick="signOut()" value="Sair" id="sair" /> </br>
+
+<script>
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (!user) {
+			alert("Logue no sistema para puder utilizar as suas funcionalidades");
+			location = 'signIn.html';
+		}
+	});
+</script>
 </body>
 </html>

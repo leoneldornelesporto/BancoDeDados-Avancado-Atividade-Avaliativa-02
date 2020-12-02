@@ -10,8 +10,8 @@
 <body onload="listar_titulo()">
 
 <div id="lista_titulo">
-<button onclick="window.location.href = 'listar_ano.html';">Listar por ano</button> 
-<button onclick="window.location.href = 'listar.html';">Listar por titulo</button> 
+<button onclick="window.location.href = 'listar_ano.html';" id="listarAno">Listar por ano</button>
+<button onclick="window.location.href = 'listar.html';" id="listarTitulo">Listar por titulo</button>
 
 
 <h1> Lista de Livros por Titulo</h1>
@@ -22,12 +22,12 @@
 <th>Autor</th>
 <th>descrição</th>
 <th>Título</th>
-<th> Editar</th>
-<th> Remover</th>
+<th id="thEditar"> Editar</th>
+<th id="thRemover"> Remover</th>
 </tr>
 </tbody>
 </table>
-<a href="index.html">  Cadastrar </a>
+<a href="index.html" id="aCadastrar">  Cadastrar </a>
 
 </div>
 

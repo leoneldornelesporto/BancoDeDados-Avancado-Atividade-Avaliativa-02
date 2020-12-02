@@ -180,8 +180,51 @@ function listar_titulo(){
                 console.log("Error: " + error.code);
             });
         } else {
-            alert("Logue no sistema para puder utilizar as suas funcionalidades");
-            location = 'signIn.html';
+            dbRef.orderByChild("titulo").on("child_added", function(snapshot) {
+                console.log(snapshot);
+                var tbody = document.getElementById("tabCorpo");
+                var tr = document.createElement("tr");
+
+                var td_ano = document.createElement("td");
+                td_ano.innerHTML = snapshot.val().ano;
+                tr.appendChild(td_ano);
+
+                var td_autor = document.createElement("td");
+                td_autor.innerHTML = snapshot.val().autor;
+                tr.appendChild(td_autor);
+
+                var td_descricao = document.createElement("td");
+                td_descricao.innerHTML = snapshot.val().descricao;
+                tr.appendChild(td_descricao);
+
+                var td_titulo = document.createElement("td");
+                td_titulo.innerHTML = snapshot.val().titulo;
+                tr.appendChild(td_titulo);
+
+                document.getElementById("aCadastrar").style.display = 'none';
+
+                var thEditar = document.getElementById("thEditar");
+                thEditar.style.display = 'none';
+                var thRemover = document.getElementById("thRemover");
+                thRemover.style.display = 'none';
+
+                tr.append(thEditar);
+                tr.append(thRemover);
+
+                var listarAno = document.getElementById("listarAno");
+                listarAno.style.display = 'none';
+                var listarTitulo = document.getElementById("listarTitulo");
+                listarTitulo.style.display = 'none';
+
+                var sair = document.getElementById("sair");
+                sair.style.display = 'none';
+
+                tr.append(listarAno);
+                tr.append(listarTitulo);
+                tr.append(sair);
+
+                tbody.appendChild(tr); // acrescenta o tr com seu conteúdo no tbody;
+            });
         }
     });
 }
@@ -262,7 +305,6 @@ function listar_ano(){
 }
 
 function carrega_editar(chave, aux){
-
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             document.getElementById(aux).style.display = 'none';
