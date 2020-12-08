@@ -137,41 +137,33 @@ function listar_titulo(){
                 td_titulo.innerHTML= snapshot.val().titulo;
                 tr.appendChild(td_titulo);
 
-                //criando o td do editar e o td do remover
                 var tdE = document.createElement("td");
                 var tdR = document.createElement("td");
 
-                //variavel para identificar o livro que vai ser clicado para editar ou remover
                 var chave = snapshot.key;
 
-                //criando botão editar
                 var buttonE = document.createElement("button");
                 buttonE.innerHTML = "EDITAR";
                 buttonE.setAttribute('id', chave);
                 buttonE.setAttribute('value', chave);
                 tdE.appendChild(buttonE);
 
-                //criando botão remover
                 var buttonR = document.createElement("button");
                 buttonR.innerHTML = "REMOVER";
                 tdR.appendChild(buttonR);
 
-                //colocando o td do editar e o td do remover na tabela
                 tr.appendChild(tdE);
                 tr.appendChild(tdR);
 
-                tbody.appendChild(tr); // acrescenta o tr com seu conteúdo no tbody
+                tbody.appendChild(tr); 
 
-                //variavel auxiliar para saber qual div esconder - listar_ano ou listar_titulo
                 var aux = 'lista_titulo';
 
-                //chamando a função editar quando é clicado no botão
                 buttonE.addEventListener("click", function(){
                     carrega_editar(chave, aux);
 
                 });
 
-                //chamando a função remover quando é clicado no botão
                 buttonR.addEventListener("click", function(){
                     remover(chave);
                 });
@@ -223,7 +215,7 @@ function listar_titulo(){
                 tr.append(listarTitulo);
                 tr.append(sair);
 
-                tbody.appendChild(tr); // acrescenta o tr com seu conteúdo no tbody;
+                tbody.appendChild(tr);
             });
         }
     });
@@ -255,40 +247,32 @@ function listar_ano(){
                 td_titulo.innerHTML= snapshot.val().titulo;
                 tr.appendChild(td_titulo);
 
-                //criando o td do editar e o td do remover
                 var tdE = document.createElement("td");
                 var tdR = document.createElement("td");
 
-                //variavel para identificar o livro que vai ser clicado para editar ou remover
                 var chave = snapshot.key;
 
-                //criando botão editar
                 var buttonE = document.createElement("button");
                 buttonE.innerHTML = "EDITAR";
                 buttonE.setAttribute('id', chave);
                 buttonE.setAttribute('value', chave);
                 tdE.appendChild(buttonE);
 
-                //criando botão remover
                 var buttonR = document.createElement("button");
                 buttonR.innerHTML = "REMOVER";
                 tdR.appendChild(buttonR);
 
-                //colocando o td do editar e o td do remover na tabela
                 tr.appendChild(tdE);
                 tr.appendChild(tdR);
 
-                tbody.appendChild(tr); // acrescenta o tr com seu conteúdo no tbody
+                tbody.appendChild(tr);
 
-                //variavel auxiliar para saber qual div esconder - listar_ano ou listar_titulo
                 var aux = 'lista_ano';
 
-                //chamando a função editar quando é clicado no botão
                 buttonE.addEventListener("click", function(){
                     carrega_editar(chave, aux);
                 });
 
-                //chamando a função remover quando é clicado no botão
                 buttonR.addEventListener("click", function(){
                     remover(chave);
                 });
